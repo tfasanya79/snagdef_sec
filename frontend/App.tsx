@@ -9,6 +9,7 @@ import { Header } from './components/Header';
 import { View, Alert, Agent, initialAgents, initialAlerts, initialSubscription, initialIntegrations, SubscriptionPlan, Integration } from './types';
 import { BellIcon, ShieldCheckIcon, DollarSignIcon, BriefcaseIcon, CpuChipIcon, BookOpenIcon } from './components/icons/NavIcons';
 import { register, login, getToken, removeToken } from './services/geminiService';
+import { register, login, getToken, removeToken } from './services/geminiService';
 
 const App: React.FC = () => {
   const [currentView, setCurrentView] = useState<View>(View.DASHBOARD);

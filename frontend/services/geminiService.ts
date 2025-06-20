@@ -44,13 +44,13 @@ async function generateText(prompt: string, systemInstruction?: string): Promise
 const API_BASE = "http://localhost:8000"; // Change to your backend URL in production
 
 // JWT token helpers
-function saveToken(token: string) {
+export function saveToken(token: string) {
   localStorage.setItem("access_token", token);
 }
-function getToken(): string | null {
+export function getToken(): string | null {
   return localStorage.getItem("access_token");
 }
-function removeToken() {
+export function removeToken() {
   localStorage.removeItem("access_token");
 }
 
