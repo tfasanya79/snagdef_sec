@@ -18,6 +18,7 @@ const App: React.FC = () => {
   const [subscription, setSubscription] = useState<SubscriptionPlan>(initialSubscription);
   const [integrations, setIntegrations] = useState<Integration[]>(initialIntegrations);
   const [apiKeyExists, setApiKeyExists] = useState<boolean>(false);
+  const [showAuth, setShowAuth] = useState(false);
 
   // --- Auth state ---
   const [authMode, setAuthMode] = useState<'login' | 'register'>('login');
@@ -105,6 +106,33 @@ const App: React.FC = () => {
         return <DashboardView alerts={alerts} agents={agents}/>;
     }
   };
+
+    // --- Landing Page UI ---
+  if (!isAuthenticated && !showAuth) {
+    return (
+      <div className="flex items-center justify-center h-screen bg-slate-900 text-slate-100">
+        <div className="bg-slate-800 p-10 rounded shadow-md w-full max-w-lg flex flex-col items-center">
+          {/* Logo or Icon */}
+          <div className="mb-6">
+            <img src="/logo192.png" alt="SnagDef Logo" className="w-20 h-20" />
+          </div>
+          <h1 className="text-3xl font-bold mb-2 text-cyan-400">SnagDef</h1>
+          <h2 className="text-xl font-semibold mb-4 text-slate-200">Autonomous Threat Detection & Response</h2>
+          <p className="text-slate-400 mb-6 text-center">
+            SnagDef is an AI-powered cybersecurity platform that detects, analyzes, and responds to threats in real time. 
+            Protect your infrastructure with autonomous agents and actionable insights.
+          </p>
+          <button
+            className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded text-lg"
+            onClick={() => setShowAuth(true)}
+          >
+            Get Started
+          </button>
+        </div>
+      </div>
+    );
+  };
+
 
   // --- Auth UI ---
   if (!isAuthenticated) {
