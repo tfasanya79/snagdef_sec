@@ -113,7 +113,7 @@ const App: React.FC = () => {
         <div className="bg-slate-800 p-10 rounded shadow-md w-full max-w-lg flex flex-col items-center">
           {/* Logo or Icon */}
           <div className="mb-6">
-            <img src={process.env.PUBLIC_URL + '/logo.svg'} alt="SnagDef Logo" className="w-20 h-20" />
+            <img src="logo.svg" alt="SnagDef Logo" className="w-20 h-20" />
           </div>
           <h1 className="text-3xl font-bold mb-2 text-cyan-400">SnagDef</h1>
           <h2 className="text-xl font-semibold mb-4 text-slate-200">Autonomous Threat Detection & Response</h2>
