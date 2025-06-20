@@ -1,4 +1,4 @@
-FROM node:20-bullseye
+FROM node:20-bullseye AS builder
 
 WORKDIR /app
 
@@ -6,7 +6,12 @@ COPY package*.json ./
 RUN npm install
 
 COPY . .
+RUN npm run build
 
-EXPOSE 5173
+# Use a lightweight web server for static files
+FROM nginx:alpine
+COPY --from=builder /app/dist /usr/share/nginx/html
 
-CMD ["npm", "run", "dev", "--", "--host", "0.0.0.0"]
+EXPOSE 80
+
+CMD ["nginx", "-g", "daemon off;"]
