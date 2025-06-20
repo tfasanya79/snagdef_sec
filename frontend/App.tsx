@@ -9,7 +9,6 @@ import { Header } from './components/Header';
 import { View, Alert, Agent, initialAgents, initialAlerts, initialSubscription, initialIntegrations, SubscriptionPlan, Integration } from './types';
 import { BellIcon, ShieldCheckIcon, DollarSignIcon, BriefcaseIcon, CpuChipIcon, BookOpenIcon } from './components/icons/NavIcons';
 import { register, login, getToken, removeToken } from './services/geminiService';
-import { register, login, getToken, removeToken } from './services/geminiService';
 
 const App: React.FC = () => {
   const [currentView, setCurrentView] = useState<View>(View.DASHBOARD);
@@ -93,7 +92,7 @@ const App: React.FC = () => {
   const renderView = () => {
     switch (currentView) {
       case View.DASHBOARD:
-        return <DashboardView alerts={alerts} agents={agents} />;
+        return <DashboardView alerts={alerts} agents={agents} addAlert={addAlert} />;
       case View.AGENTS:
         return <AgentsView agents={agents} updateAgentStatus={updateAgentStatus} addAlert={addAlert} apiKeyExists={apiKeyExists} />;
       case View.BILLING:
@@ -103,18 +102,18 @@ const App: React.FC = () => {
       case View.DOCUMENTATION:
         return <DocumentationView />;
       default:
-        return <DashboardView alerts={alerts} agents={agents}/>;
+        return <DashboardView alerts={alerts} agents={agents} addAlert={addAlert}/>;
     }
   };
 
-    // --- Landing Page UI ---
+  // --- Landing Page UI ---
   if (!isAuthenticated && !showAuth) {
     return (
       <div className="flex items-center justify-center h-screen bg-slate-900 text-slate-100">
         <div className="bg-slate-800 p-10 rounded shadow-md w-full max-w-lg flex flex-col items-center">
           {/* Logo or Icon */}
           <div className="mb-6">
-            <img src="/logo192.png" alt="SnagDef Logo" className="w-20 h-20" />
+            <img src="/logo.svg" alt="SnagDef Logo" className="w-20 h-20" />
           </div>
           <h1 className="text-3xl font-bold mb-2 text-cyan-400">SnagDef</h1>
           <h2 className="text-xl font-semibold mb-4 text-slate-200">Autonomous Threat Detection & Response</h2>
@@ -131,8 +130,7 @@ const App: React.FC = () => {
         </div>
       </div>
     );
-  };
-
+  }
 
   // --- Auth UI ---
   if (!isAuthenticated) {
