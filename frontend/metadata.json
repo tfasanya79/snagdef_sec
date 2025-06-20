@@ -1,0 +1,6 @@
+{
+  "name": "SnagDef: Autonomous Security Platform",
+  "description": "A dashboard simulating an Autonomous Threat Detection & Response System, showcasing its agents, capabilities, and monetization model. Includes AI-powered report generation using Gemini.",
+  "requestFramePermissions": [],
+  "prompt": ""
+}

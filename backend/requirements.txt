@@ -1,0 +1,13 @@
+fastapi
+uvicorn[standard]
+sqlalchemy
+alembic
+psycopg2-binary  # Only needed for PostgreSQL, safe to keep for future
+python-dotenv
+passlib[bcrypt]
+python-jose[cryptography]
+pydantic
+python-multipart
+pytest
+httpx
+pytest-asyncio
