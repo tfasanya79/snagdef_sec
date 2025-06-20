@@ -41,7 +41,7 @@ async function generateText(prompt: string, systemInstruction?: string): Promise
 
 // --- Backend API integration ---
 
-const API_BASE = "http://localhost:8000"; // Change to your backend URL in production
+const API_BASE = "https://snagdef-sec.onrender.com"; // Change to your backend URL in production
 
 // JWT token helpers
 export function saveToken(token: string) {

@@ -19,7 +19,7 @@ app.include_router(agents.router)
 # CORS Middleware (allow all for dev; restrict in prod)
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Change to specific domains in production!
+    allow_origins=["https://snagdefsec.netlify.app"],  # Change to specific domains in production!
     allow_methods=["*"],
     allow_headers=["*"],
 )
